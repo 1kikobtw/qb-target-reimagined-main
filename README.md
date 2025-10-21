@@ -21,4 +21,6 @@ Version: 1.0
 
 ## Preview
 
-![qb-target](https://streamable.com/vch2o6)
+![qb-target](https://r2.fivemanage.com/otfz57BS2qNaP9onC2Ljx/Screenshot2025-10-21190051.png)
+
+Video Link: https://streamable.com/vch2o6
