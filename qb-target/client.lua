@@ -517,15 +517,13 @@ local function RaycastCamera(flag, playerCoords)
 		if result ~= 1 then
 			local distance = playerCoords and #(playerCoords - endCoords)
 
-			if flag == 30 and entityHit and entityHit ~= 0 and DoesEntityExist(entityHit) then
-				if not HasEntityClearLosToEntity(entityHit, playerPed, 7) then
-					entityHit = nil
-				end
-			elseif flag == 30 then
+			if entityHit == 0 or not entityHit or not DoesEntityExist(entityHit) then
+				entityHit = nil
+			elseif flag == 30 and not HasEntityClearLosToEntity(entityHit, playerPed, 7) then
 				entityHit = nil
 			end
 
-			local entityType = (entityHit and DoesEntityExist(entityHit)) and GetEntityType(entityHit) or nil
+			local entityType = entityHit and GetEntityType(entityHit) or nil
 
 			if entityType == 0 and pcall(GetEntityModel, entityHit) then
 				entityType = 3
