@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap");
+
+:root {
+    --interaction-color: #3a8dff;
+    --interaction-text-color: #eaf3ff;
+    --surface-color: rgba(28, 27, 31, 0.86);
+    --surface-border: rgba(255, 255, 255, 0.08);
+    --text-muted: rgba(230, 225, 229, 0.72);
+    --text-strong: #ffffff;
+    --option-selected-bg: rgba(58, 141, 255, 0.18);
+    --option-hover-bg: rgba(58, 141, 255, 0.12);
+    --shadow-color: 0 8px 26px rgba(0, 0, 0, 0.35);
+    --radius-medium: 16px;
+    --radius-large: 24px;
+    --font-primary: "Exo 2", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+    font-family: var(--font-primary);
+    color: var(--text-strong);
+    background: transparent;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#target-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.72);
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    transform-origin: center;
+}
+
+#target-wrapper.pop-in {
+    animation: targetPop 0.2s ease-out forwards;
+}
+
+@keyframes targetPop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.432);
+        opacity: 0;
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(0.792);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.72);
+        opacity: 1;
+    }
+}
+
+#target-prompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+
+#prompt-key {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.3);
+    transform-origin: center;
+    border-radius: 12px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    transition: transform 0.2s ease;
+}
+
+#target-wrapper.has-key-label #prompt-key {
+    transform: scale(0.45);
+}
+
+#prompt-ring {
+    transform: rotate(-90deg);
+}
+
+#progress-track {
+    fill: none;
+    stroke: rgba(255, 255, 255, 1);
+    stroke-width: 6px;
+}
+
+#progress-ring {
+    fill: none;
+    stroke: var(--interaction-color);
+    stroke-width: 6px;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.1s ease-out;
+}
+
+#prompt-key-label {
+    position: absolute;
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--interaction-text-color);
+    letter-spacing: 0.05em;
+    display: none;
+}
+
+#target-wrapper.has-key-label #prompt-key-label {
+    display: block;
+}
+
+#prompt-details {
+    display: none;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 6rem;
+}
+
+#target-wrapper.has-target #prompt-details {
+    display: flex;
+    padding: 0.5rem 0.65rem;
+    border-radius: 10px;
+    background: var(--surface-color);
+    border: 1px solid var(--surface-border);
+    box-shadow: var(--shadow-color);
+    backdrop-filter: blur(12px);
+    min-width: 9rem;
+    margin-left: 0;
+}
+
+#prompt-header {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 1.065rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+}
+
+#prompt-icon {
+    font-size: 1.21rem;
+    color: #ffffff;
+}
+
+#prompt-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    pointer-events: none;
+}
+
+.prompt-option {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.45rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-strong);
+    font-size: 1.065rem;
+    line-height: 1.2;
+    transition: background 0.12s ease, transform 0.12s ease;
+}
+
+.prompt-option .option-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.1rem;
+    height: 1.1rem;
+    font-size: 1.21rem;
+    color: #ffffff;
+}
+
+.prompt-option.selected {
+    background: var(--option-selected-bg);
+    transform: translateX(6px);
+}
+
+.prompt-option.selected .option-label {
+    color: var(--interaction-text-color);
+    font-weight: 600;
+}
+
+.prompt-option:hover:not(.selected) {
+    background: var(--option-hover-bg);
+}
+
+#target-wrapper.progress-complete #prompt-key-label {
+    color: var(--text-strong);
+}
+
+/* Settings Panel */
+
+#settings-wrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 2rem;
+    background: transparent;
+    backdrop-filter: none;
+    pointer-events: auto;
+}
+
+#settings-card {
+    background: rgb(24, 23, 27);
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: min(420px, 90vw);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#settings-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-strong);
+}
+
+.settings-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.settings-field input[type="color"] {
+    width: 100%;
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+}
+
+.settings-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.settings-actions button {
+    min-width: 96px;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+#settings-save {
+    background: var(--interaction-color);
+    color: #1f1a11;
+}
+
+#settings-close {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-strong);
+}
+
+.settings-actions button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
