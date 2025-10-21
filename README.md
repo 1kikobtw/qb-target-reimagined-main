@@ -11,7 +11,7 @@ Version: 1.0
 
 ## Credits
 
-* Based Creadit [qb-target](https://github.com/qbcore-framework/qb-target) .
+* Based Credit [qb-target](https://github.com/qbcore-framework/qb-target) .
 
 ## Dependency
 
