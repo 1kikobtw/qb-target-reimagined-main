@@ -83,10 +83,10 @@ Config.SettingsModifierControl = 19 -- INPUT_CHARACTER_WHEEL (Left Alt)
 Config.SettingsOpenControl = 26 -- INPUT_LOOK_BEHIND (C)
 
 -- Default colors for the interaction prompt
-Config.DefaultInteractionColor = '#FFD966'
+Config.DefaultInteractionColor = '#11d822ff'
 Config.DefaultTextColor = '#FFFFFF'
 
-Config.InteractPromptText = 'Pressiona [ALT] para interagir'
+Config.InteractPromptText = 'Press [ALT] to toggle target'
 Config.InteractPromptIcon = 'fa-hand'
 Config.InteractPromptIconSize = 'large'
 Config.InteractPromptPosition = 'bottom'

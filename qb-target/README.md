@@ -1,4 +1,8 @@
-# qb-target
+# qb-target reimagined
+This script is a target system for Fivem, QB framework (should work with qbox)
+Full rework of qb-target resource,
+Changed to a button to interact
+Scroll betwen qb-target labels
 
 qb-target is a targeting solution that allows interaction with any predefined entity, model, entity type or polyzone. While activated you can easily and safely replace markers and distance checking, instead relying on intuitive design to improve player experiences and optimize interaction.
 
@@ -20,14 +24,14 @@ qb-target is a targeting solution that allows interaction with any predefined en
 
 ## Information
 
-This repository was originally a direct fork and now it's own repository as it's basically qtarget but with lots of changes to it to make it better, most of the code comes from qtarget as I find their work awesome on this and what they've achieved with it.
+This repository was originally a direct fork and now it's own repository as it's basically qb-target but with lots of changes to it to make it better, most of the code comes from qb-target as I find their work awesome on this and what they've achieved with it.
 
-You are free to help through Pull Requests and leave as much suggestions or issues, I love some help!
+You are free to help through Pull Requests and leave as much suggestions or issues!
 
 The TEMPLATES.md and EXAMPLES.md are always being improved and new examples can be made on request, just let me know!
 
 ## Features 
-- Maintains compatibility with bt-target while providing improved utility and performance
+- Maintains compatibility with qb-target while providing improved utility and performance
 - Optimised and improved raycasting function allows interaction with a wider range of entities
 - Add generic options to apply for all players, peds, vehicles, or objects
 - Trigger an event, function or command after clicking an option, with the ability to pass any data through
@@ -38,3 +42,5 @@ The TEMPLATES.md and EXAMPLES.md are always being improved and new examples can 
 - Support checking for job, gang, citizenid, items, or specific entities
 - Utilise the `canInteract` function for advanced checks to show or hide an option based on any trigger
 - Ped spawner to spawn peds and assign target options to them all in one place
+- New hold to interact system
+- Target toggle base

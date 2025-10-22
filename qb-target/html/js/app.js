@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (sorted.length > 1) {
             promptInstruction.textContent = "Scroll to switch";
         } else {
-            promptInstruction.textContent = "Hold to interact";
+            promptInstruction.textContent = "Hold [E] to interact";
         }
         state.lastOptionsSignature = getOptionsSignature(sorted);
     }
